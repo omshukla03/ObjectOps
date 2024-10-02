@@ -4,18 +4,16 @@
 public class App {
     public static void main(String[] args) throws Exception {
         
-         Person p1=new Person();
-         p1.age=20;
-         p1.name="Om";
+         Person p1=new Person(20,"Om Shukla");
+         Person p2=new Person();
+         p2.name="Om";
+         p2.age=20;
+
+
+         System.out.println(Person.count);
     
-         Person  p2=new Person();
-         p2.age=30;
-         p2.name="Shukla";
-       
-        // Calling eat & walk methods(Functions) in p1  
-        p1.eat();
-        p2.walk();
-        p2.walk(10);
+      
+        
  
      }
  }
@@ -24,13 +22,20 @@ public class App {
      String name;
      int age;
 
-    void walk(){
-        System.out.println(name + " is Walking");
-    }
-    void eat(){
-        System.out.println(name + " is Eating");
-    }
-    void walk(int steps){
-        System.out.println(name + " is Walking " + steps + " steps");
-    }
+     static int count;
+
+//	Checking Our Default Constructor
+        public Person(){
+            count++;
+            System.out.println("Creating an Object");
+        }
+
+        //Constructor overloading
+        public Person(int newAge,String name){
+            this();
+                this.name=name;
+                age=newAge;
+        }
+
+ 
  }
